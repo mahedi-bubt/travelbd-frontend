@@ -8,7 +8,7 @@ const Header = () => {
     return (
         <>
             <Navbar sticky="top" collapseOnSelect expand="lg" bg="dark" variant="dark">
-                <Container>
+                <Container id="home">
                     <Navbar.Brand href="#home">TRAVEL BD</Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
@@ -18,7 +18,7 @@ const Header = () => {
                             <Link className="nav-link" to="/about">About</Link>
                             <Link className="nav-link" to="/holidypackages">Holiday Package</Link>
                             <HashLink className="nav-link" to="/home#contact">Contact</HashLink>
-                            {/* <HashLink className="nav-link" to="/home#offer">Offer</HashLink> */}
+                            <HashLink className="nav-link" to="/addpackages">Add Packages</HashLink>
                         </Nav>
                         {/* {
                             user?.email ?
