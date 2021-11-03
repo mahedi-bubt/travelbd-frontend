@@ -11,17 +11,15 @@ const MyOrder = ({ order }) => {
     return (
         <div>
             {
-                currentUser ?
-                    <tr>
-                        <td>{personname} ' '</td>
-                        <td>{email} ' '</td>
-                        <td>{packagename} ' '</td>
-                        <td>{packageprice} ' '</td>
-                        <td>{phonenumber} ' ' </td>
-                        <td><button>Delete</button></td>
-                    </tr>
-                    :
-                    <span></span>
+                currentUser &&
+                <tr>
+                    <td>{personname} ' '</td>
+                    <td>{email} ' '</td>
+                    <td>{packagename} ' '</td>
+                    <td>{packageprice} ' '</td>
+                    <td>{phonenumber} ' ' </td>
+                    <td><button>Delete</button></td>
+                </tr>
             }
         </div>
     );

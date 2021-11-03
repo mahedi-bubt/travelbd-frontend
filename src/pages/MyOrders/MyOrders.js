@@ -24,6 +24,7 @@ const MyOrders = () => {
                     <tr>
                         {
                             myorders.map(orders => <MyOrder
+                                key={orders._id}
                                 order={orders}
                             ></MyOrder>)
                         }

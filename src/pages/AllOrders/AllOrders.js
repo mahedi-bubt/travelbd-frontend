@@ -4,6 +4,20 @@ import usePlaceOrders from '../../hooks/usePlaceOrders';
 
 const AllOrders = () => {
     const [allOrders] = usePlaceOrders();
+
+    const handleDelete = id => {
+        const url = `https://aqueous-reaches-58304.herokuapp.com/placeorder/${id}`;
+        fetch(url, {
+            method: 'DELETE'
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.deletedCount) {
+                    alert('are you sure, Delete this data')
+                }
+            })
+    }
     return (
         <div>
             <h2>All Orders</h2>
@@ -27,7 +41,7 @@ const AllOrders = () => {
                                     <td>{orders.packagename} ''</td>
                                     <td>{orders.packageprice} ''</td>
                                     <td>{orders.phonenumber} ''</td>
-                                    <td><button>Delete</button></td>
+                                    <td><button onClick={() => handleDelete(orders._id)}>Delete</button></td>
                                 </tr>
                             )
                         }

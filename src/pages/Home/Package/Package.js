@@ -3,7 +3,7 @@ import { Card, Col, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 const Package = ({ packag }) => {
-    console.log(packag)
+    /* console.log(packag) */
 
     const { name, imageurl, price, description, duration } = packag;
     return (

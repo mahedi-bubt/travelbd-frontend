@@ -6,11 +6,9 @@ import { useLocation, useHistory } from 'react-router';
 import './LogIn.css'
 
 const LogIn = () => {
-    const { googleSignIn, logInUser } = useAuth();
+    const { googleSignIn } = useAuth();
     const location = useLocation();
     const history = useHistory();
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
 
     const redirect_url = location?.state?.from || '/home';
 
@@ -20,34 +18,18 @@ const LogIn = () => {
                 history.push(redirect_url);
             })
     }
-
-    const handleLogInForm = (e) => {
-        logInUser(email, password)
-            .then((result) => {
-                history.push(redirect_url);
-            })
-        e.preventDefault();
-    }
-
-    const handleEmail = (e) => {
-        setEmail(e.target.value)
-    }
-
-    const handlePassword = (e) => {
-        setPassword(e.target.value)
-    }
     return (
         <Container>
             <div className="login-form">
                 <h2>LogIn Form</h2>
-
-                <Form onSubmit={handleLogInForm}>
+                <p>Only Google SignIn Button work. Form doesnot work.</p>
+                <Form >
                     <Form.Group as={Row} className="mb-3" controlId="formHorizontalEmail">
                         <Form.Label column sm={2}>
                             Email
                         </Form.Label>
                         <Col sm={10}>
-                            <Form.Control onBlur={handleEmail} type="email" placeholder="Email" />
+                            <Form.Control type="email" placeholder="Email" />
                         </Col>
                     </Form.Group>
 
@@ -56,7 +38,7 @@ const LogIn = () => {
                             Password
                         </Form.Label>
                         <Col sm={10}>
-                            <Form.Control onBlur={handlePassword} type="password" placeholder="Password" />
+                            <Form.Control type="password" placeholder="Password" />
                         </Col>
                     </Form.Group>
                     <Form.Group as={Row} className="mb-3">
