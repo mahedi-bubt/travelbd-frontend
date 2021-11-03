@@ -22,6 +22,7 @@ const AddPackages = () => {
             <h2>Add Your Packages</h2>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <input {...register("name")} placeholder="Enter Package Name" />
+                <input {...register("duration")} placeholder="Enter Tour Duration" />
                 <input type="number" {...register("price")} placeholder="Enter Price" />
                 <textarea {...register("description")} placeholder="Enter Details Here" />
                 <input {...register("imageurl")} placeholder="Enter Image Url" />

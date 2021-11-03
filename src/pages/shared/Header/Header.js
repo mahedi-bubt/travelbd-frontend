@@ -1,10 +1,12 @@
 import React from 'react';
 import { Carousel, Container, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import useAuth from '../../../hooks/useAuth';
 import { HashLink } from 'react-router-hash-link';
 import './Header.css'
 
 const Header = () => {
+    const { user, logOut } = useAuth();
     return (
         <>
             <Navbar sticky="top" collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -16,11 +18,27 @@ const Header = () => {
                             <HashLink className="nav-link" to="/home#home">Home</HashLink>
                             <HashLink className="nav-link" to="/home#packages">Tour Packages</HashLink>
                             <Link className="nav-link" to="/about">About</Link>
-                            <Link className="nav-link" to="/holidypackages">Holiday Package</Link>
                             <HashLink className="nav-link" to="/home#contact">Contact</HashLink>
-                            <HashLink className="nav-link" to="/addpackages">Add Packages</HashLink>
                         </Nav>
-                        {/* {
+                        {
+                            user?.email ?
+                                <Link className="nav-link" to="/addpackages">Add Packages</Link>
+                                :
+                                <span></span>
+                        }
+                        {
+                            user?.email ?
+                                <Link className="nav-link" to="/myorders">My Orders</Link>
+                                :
+                                <span></span>
+                        }
+                        {
+                            user?.email ?
+                                <Link className="nav-link" to="/allorders">All Orders</Link>
+                                :
+                                <span></span>
+                        }
+                        {
                             user?.email ?
                                 <Link to="/home">
                                     <button onClick={logOut} className="btn btn-dark">SignOut</button>
@@ -30,7 +48,7 @@ const Header = () => {
                                     <button className="btn btn-dark">LogIn</button>
                                 </Link>
                         }
-                        <span className="nav-link">{user?.displayName}</span> */}
+                        <span className="nav-link">{user?.displayName}</span>
                     </Navbar.Collapse>
                 </Container>
             </Navbar>

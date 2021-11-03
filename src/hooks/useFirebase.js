@@ -1,7 +1,8 @@
 import initializationApp from "../Firebase/firebase.init";
 import { } from 'firebase/app';
 import {
-    getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut
+    getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut,
+    createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile
 } from "firebase/auth";
 import { useEffect, useState } from "react";
 
@@ -25,6 +26,20 @@ const useFirebase = () => {
         });
         return unsuscriber;
     }, [])
+    const createUser = (email, password) => {
+        return createUserWithEmailAndPassword(auth, email, password)
+
+    }
+
+    const logInUser = (email, password) => {
+        return signInWithEmailAndPassword(auth, email, password);
+    }
+
+    const updateUserDetails = (username) => {
+        return updateProfile(auth.currentUser, {
+            displayName: { username }
+        })
+    }
 
     const logOut = () => {
         signOut(auth).then(() => {
@@ -34,6 +49,9 @@ const useFirebase = () => {
     return {
         user,
         googleSignIn,
+        createUser,
+        logInUser,
+        updateUserDetails,
         logOut
     }
 }

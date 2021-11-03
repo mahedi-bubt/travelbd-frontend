@@ -24,7 +24,7 @@ const Packages = () => {
         <div id="packages">
             <Container style={style.services_container}>
                 <div style={style.servicesTop}>
-                    <h2 className="text-primary text-center">Our all Services</h2>
+                    <h2 className="text-primary text-center">Our Packages</h2>
                     <hr style={style.hr} />
                 </div>
                 <Row xs={1} md={3} className="g-4">
