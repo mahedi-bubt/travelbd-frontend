@@ -13,6 +13,7 @@ import Header from './pages/shared/Header/Header';
 import PrivateRoute from './pages/Home/PrivateRoute/PrivateRoute';
 import MyOrders from './pages/MyOrders/MyOrders';
 import AllOrders from './pages/AllOrders/AllOrders';
+import NotFound from './pages/NotFound/NotFound';
 
 function App() {
   return (
@@ -49,7 +50,7 @@ function App() {
               <OrderPlaced></OrderPlaced>
             </PrivateRoute>
             <Route path="*">
-
+              <NotFound></NotFound>
             </Route>
           </Switch>
           <Footer></Footer>
