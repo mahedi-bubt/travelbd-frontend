@@ -1,5 +1,5 @@
 import React from 'react';
-import { Table } from 'react-bootstrap';
+import { Container, Table } from 'react-bootstrap';
 import usePlaceOrders from '../../hooks/usePlaceOrders';
 
 const AllOrders = () => {
@@ -19,20 +19,20 @@ const AllOrders = () => {
             })
     }
     return (
-        <div>
-            <h2>All Orders</h2>
-            <Table striped bordered hover variant="dark">
-                <thead>
-                    <tr>
-                        <th>User Name</th>
-                        <th>Email</th>
-                        <th>Package Name</th>
-                        <th>Price</th>
-                        <th>Phone Number</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
+        <Container>
+            <div>
+                <h2 style={{ margin: "50px" }}>All Orders</h2>
+                <Table striped bordered hover variant="dark">
+                    <thead>
+                        <tr>
+                            <th>User Name</th>
+                            <th>Email</th>
+                            <th>Package Name</th>
+                            <th>Price</th>
+                            <th>Phone Number</th>
+                        </tr>
+                    </thead>
+                    <tbody>
                         {
                             allOrders.map(orders =>
                                 <tr>
@@ -45,11 +45,11 @@ const AllOrders = () => {
                                 </tr>
                             )
                         }
-                    </tr>
-                </tbody>
-            </Table>
+                    </tbody>
+                </Table>
 
-        </div>
+            </div>
+        </Container>
     );
 };
 

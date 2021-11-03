@@ -1,4 +1,5 @@
 import React from 'react';
+import { Container } from 'react-bootstrap';
 import useAuth from '../../hooks/useAuth';
 
 const MyOrder = ({ order }) => {
@@ -9,7 +10,7 @@ const MyOrder = ({ order }) => {
         var currentUser = email;
     }
     return (
-        <div>
+        <>
             {
                 currentUser &&
                 <tr>
@@ -21,7 +22,7 @@ const MyOrder = ({ order }) => {
                     <td><button>Delete</button></td>
                 </tr>
             }
-        </div>
+        </>
     );
 };
 
